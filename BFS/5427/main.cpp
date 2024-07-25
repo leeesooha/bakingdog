@@ -60,8 +60,8 @@ int main(void) {
             for (int i = 0; i < 4; i++) {
                 int nx = cur.X + dx[i];
                 int ny = cur.Y + dy[i];
-                std::cout << "fire: " << fire[cur.X][cur.Y] << ", human: " << human[cur.X][cur.Y] << "\n";
-                if ((nx < 0 || nx >= m_x || ny < 0 || ny >= m_y) && (fire[cur.X][cur.Y] > human[cur.X][cur.Y])) {
+                // std::cout << "fire: " << fire[cur.X][cur.Y] << ", human: " << human[cur.X][cur.Y] << "\n";
+                if (nx < 0 || nx >= m_x || ny < 0 || ny >= m_y) {
                     std::cout << human[cur.X][cur.Y] + 1 << "\n";
                     flag = 1;
                     break ;
