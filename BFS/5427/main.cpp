@@ -60,13 +60,12 @@ int main(void) {
             for (int i = 0; i < 4; i++) {
                 int nx = cur.X + dx[i];
                 int ny = cur.Y + dy[i];
-                // std::cout << "fire: " << fire[cur.X][cur.Y] << ", human: " << human[cur.X][cur.Y] << "\n";
                 if (nx < 0 || nx >= m_x || ny < 0 || ny >= m_y) {
                     std::cout << human[cur.X][cur.Y] + 1 << "\n";
                     flag = 1;
                     break ;
                 }
-                if (fire[nx][ny] <= human[nx][ny] || human[nx][ny] >= 0) continue;
+                if ((fire[nx][ny] <= (human[cur.X][cur.Y] + 1) && fire[nx][ny] != -1) || human[nx][ny] >= 0) continue;
                 human_Q.push({nx, ny});
                 human[nx][ny] = human[cur.X][cur.Y] + 1;
             }
